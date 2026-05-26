@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender Menstruasi Ayu ♡</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🌸 Kalender Menstruasi Ayu</h1>
+                <p class="subtitle">Pantau siklus Anda dengan mudah</p>
+            </div>
+        </header>
+
+        <!-- Setup Section -->
+        <div id="setupSection" class="setup-section">
+            <div class="setup-card">
+                <h2>Mulai Sekarang ♡</h2>
+                <p>Masukkan tanggal mulai menstruasi terakhir Anda</p>
+                
+                <div class="form-group">
+                    <label for="lastPeriodDate">Tanggal Mulai Menstruasi:</label>
+                    <input type="date" id="lastPeriodDate" class="date-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="cycleLength">Panjang Siklus (hari):</label>
+                    <input type="number" id="cycleLength" class="number-input" value="28" min="21" max="35">
+                    <small>Rata-rata: 28 hari</small>
+                </div>
+
+                <button class="btn btn-primary" onclick="saveData()">Simpan Data 💾</button>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div id="calendarSection" class="calendar-section hidden">
+            <!-- Navigation -->
+            <div class="calendar-nav">
+                <button class="btn-nav" onclick="previousMonth()">← Bulan Sebelumnya</button>
+                <h2 id="monthYear" class="month-year"></h2>
+                <button class="btn-nav" onclick="nextMonth()">Bulan Selanjutnya →</button>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div class="calendar-wrapper">
+                <div class="calendar-grid">
+                    <div class="day-header">Min</div>
+                    <div class="day-header">Sen</div>
+                    <div class="day-header">Sel</div>
+                    <div class="day-header">Rab</div>
+                    <div class="day-header">Kam</div>
+                    <div class="day-header">Jum</div>
+                    <div class="day-header">Sab</div>
+                    <div id="calendarDays" class="calendar-days"></div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color menstrual"></div>
+                    <span>Menstruasi (5-7 hari)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color follicular"></div>
+                    <span>Fase Folikel</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color ovulation"></div>
+                    <span>Ovulasi (Paling Subur)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color luteal"></div>
+                    <span>Fase Luteal</span>
+                </div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="info-section">
+                <div class="info-box">
+                    <h3>📊 Info Siklus Anda</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Menstruasi Terakhir:</span>
+                            <span id="lastPeriodInfo" class="value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Menstruasi Berikutnya:</span>
+                            <span id="nextPeriodInfo" class="value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Panjang Siklus:</span>
+                            <span id="cycleLengthInfo" class="value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Periode Subur:</span>
+                            <span id="fertilePeriodInfo" class="value"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>💡 Tips Kesehatan</h3>
+                    <ul class="tips-list">
+                        <li>✓ Minum air putih minimal 8 gelas sehari</li>
+                        <li>✓ Istirahat cukup saat menstruasi</li>
+                        <li>✓ Makan makanan bergizi seimbang</li>
+                        <li>✓ Olahraga ringan untuk menjaga kesehatan</li>
+                        <li>✓ Hindari stres berlebihan</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="resetData()">🔄 Reset Data</button>
+                <button class="btn btn-info" onclick="shareCalendar()">📤 Bagikan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
